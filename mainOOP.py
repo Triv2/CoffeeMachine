@@ -110,5 +110,32 @@ class MoneyMachine:
 
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
+menu= Menu()
+espresso = Menu().find_drink("espresso")
+latte = Menu().find_drink("latte")
+cappuccino = Menu().find_drink("cappuccino")
 
 
+on = True
+while on == True:
+  choice= input("What type of coffee would you like? 'espresso', 'cappuccino' or 'latte': ").lower()
+  if choice == "report":
+    coffee_maker.report()
+    money_machine.report()
+    menu.get_items()
+  elif choice == "espresso" and menu.find_drink("espresso") and coffee_maker.is_resource_sufficient(espresso):
+    if money_machine.make_payment(espresso.cost):
+      coffee_maker.make_coffee(espresso)
+  elif choice == "latte" and menu.find_drink("latte") and coffee_maker.is_resource_sufficient(latte):
+    if money_machine.make_payment(latte.cost):
+      coffee_maker.make_coffee(latte)
+  elif choice == "cappuccino" and menu.find_drink("cappuccino") and coffee_maker.is_resource_sufficient(cappuccino):
+    if money_machine.make_payment(cappuccino.cost):
+      coffee_maker.make_coffee(cappuccino)
+  elif choice == "off":
+    on = False
+
+
+print("This the end of the program report.")
+coffee_maker.report()
+money_machine.report()
