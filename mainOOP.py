@@ -115,10 +115,8 @@ espresso = Menu().find_drink("espresso")
 latte = Menu().find_drink("latte")
 cappuccino = Menu().find_drink("cappuccino")
 options = menu.get_items()
-
-
-
 on = True
+
 while on == True:
   choice= input(f"What type of coffee would you like? {options}: ").lower()
   if choice == "report":
@@ -135,7 +133,6 @@ while on == True:
       coffee_maker.make_coffee(cappuccino)
   elif choice == "off":
     on = False
-
 
 print("This the end of the program report.")
 coffee_maker.report()
